@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kółko i Krzyżyk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4e6ef7, #2a4f8d);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #resetBtn {
+            padding: 10px 20px;
+            background-color: #f6b93b;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+        }
+
+        #resetBtn:hover {
+            background-color: #f39c12;
+            transform: scale(1.1);
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            gap: 5px;
+            width: 380px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .cell {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #fff;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cell:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .cell.x {
+            color: #f39c12;
+        }
+
+        .cell.o {
+            color: #1abc9c;
+        }
+
+        .line {
+            position: absolute;
+            height: 5px;
+            width: 370px;
+            background-color: #f6b93b;
+            border-radius: 6px;
+            box-shadow: 0 0 12px rgba(246, 185, 59, 0.7);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 10;
+        }
+        
+        .line.show {
+            opacity: 1;
+        }
+        
+        .line.vertical {
+            width: 370px;
+            transform: rotate(90deg);
+            transform-origin: top left;
+        }
+        
+        .line.diagonal1 {
+            width: 522px;
+            transform: rotate(45deg);
+            transform-origin: top left;
+        }
+        
+        .line.diagonal2 {
+            width: 522px;
+            transform: rotate(-45deg);
+            transform-origin: top left;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Kółko i Krzyżyk</h1>
+    <div id="board" class="board"></div>
+    <p id="message">Tura: X</p>
+    <button id="resetBtn">Reset</button>
+
+ <script src="script.js"></script>
+</body>
+</html>
